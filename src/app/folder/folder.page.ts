@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FolderPage implements OnInit {
   public folder: string;
+  name = '';
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
@@ -17,7 +18,9 @@ export class FolderPage implements OnInit {
     // en utilisant un observable, une propriete d'angular
     // on utilise pas le .then mais le .subscribe pour l'observable
     this.activatedRoute.params.subscribe((params) => {
-      this.folder = params['id'];
+      console.log('params', params);
+      this.folder = params.id;
+      this.name = params.name;
     })
   }
 
